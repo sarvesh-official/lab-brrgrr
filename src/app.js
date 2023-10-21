@@ -131,36 +131,15 @@ function renderButtons() {
 }
 //Challenge 2 - Render only the items selected in the ingredients board based on the state
 function renderIngredientsBoard() {
-  let patty = document.querySelector("#patty");
-  if (state.Patty) {
-    patty.style.display = "inherit";
-  } else {
-    patty.style.display = "none";
-  }
+  let ingredientsBorad = document.querySelector(".menu-container");
+  ingredientsBorad.innerHTML = "<h3>Ingredients</h3>";
 
-  let cheese = document.querySelector("#cheese");
-  if (state.Cheese) {
-    cheese.style.display = "inherit";
-  } else {
-    cheese.style.display = "none";
-  }
-
-  if (state.Tomatoes) {
-    tomato.style.display = "inherit";
-  } else {
-    tomato.style.display = "none";
-  }
-
-  if (state.Onions) {
-    onion.style.display = "inherit";
-  } else {
-    onion.style.display = "none";
-  }
-
-  if (state.Lettuce) {
-    lettuce.style.display = "inherit";
-  } else {
-    lettuce.style.display = "none";
+  for (let ingredient in state) {
+    if (state[ingredient]) {
+      let p = document.createElement("p");
+      p.innerHTML = ingredient;
+      ingredientsBorad.appendChild(p);
+    }
   }
 }
 
